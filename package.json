@@ -1,0 +1,14 @@
+{
+  "name": "infosafe",
+  "version": "0.1.0",
+  "description": "InfoSafe.io",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thom Richardson",
+  "license": "ISC"
+}
