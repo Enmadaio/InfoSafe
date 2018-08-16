@@ -2,7 +2,7 @@
   "name": "infosafe",
   "version": "0.1.0",
   "description": "InfoSafe.io",
-  "main": "server.js",
+  "main": "api/server.js",
   "directories": {
     "test": "test"
   },
@@ -12,6 +12,8 @@
   "author": "Thom Richardson",
   "license": "ISC",
   "dependencies": {
-    "openzeppelin-solidity": "^1.12.0"
+    "express": "^4.16.3",
+    "openzeppelin-solidity": "^1.12.0",
+    "web3": "^1.0.0-beta.35"
   }
 }
