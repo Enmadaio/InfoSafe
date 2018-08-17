@@ -3,6 +3,22 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+    componentDidMount() {
+        fetch('http://127.0.0.1:3000/api/getTokenBalance', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                account: '0x8a45A9916C1bf2118E1047ad20D8c4Ba776D9722'
+            })
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+            });
+    }
   render() {
     return (
       <div className="App">

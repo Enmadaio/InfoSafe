@@ -3,9 +3,9 @@ const web3 = require('../utils/web3');
 
 const router = express.Router();
 
-router.get('/getEthBalance', (req, res) => {
-    if (req.query.account) {
-        web3.getEthBalance(req.query.account).then(result => res.json(result))
+router.post('/getEthBalance', (req, res) => {
+    if (req.body.account) {
+        web3.getEthBalance(req.body.account).then(result => res.json(result))
             .catch(err => {
                 console.error(err);
                 res.sendStatus(500);
@@ -15,9 +15,9 @@ router.get('/getEthBalance', (req, res) => {
     }
 });
 
-router.get('/getTokenBalance', (req, res) => {
-    if (req.query.account) {
-        web3.getTokenBalance(req.query.account).then(result => res.json(result))
+router.post('/getTokenBalance', (req, res) => {
+    if (req.body.account) {
+        web3.getTokenBalance(req.body.account).then(result => res.json(result))
             .catch(err => {
                 console.error(err);
                 res.sendStatus(500);
@@ -28,8 +28,8 @@ router.get('/getTokenBalance', (req, res) => {
 });
 
 router.post('/sendEth', (req, res) => {
-    if (req.query.account && req.query.gas && req.query.amount) {
-        web3.sendEthToFallback(req.query.account, req.query.gas, req.query.amount).then(result => res.json(result))
+    if (req.body.account && req.body.gas && req.body.amount) {
+        web3.sendEthToFallback(req.body.account, req.body.gas, req.body.amount).then(result => res.json(result))
             .catch(err => {
                 console.error(err);
                 res.sendStatus(500);
