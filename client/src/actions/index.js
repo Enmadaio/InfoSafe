@@ -7,7 +7,7 @@ const returnTokenBalance = (tokenBalance) => {
     }
 };
 
-const fetchTokenBalance = async () => {
+const fetchTokenBalance = async (addr) => {
     let response = await fetch('http://127.0.0.1:3000/api/getTokenBalance', {
         method: 'POST',
         headers: {
@@ -15,15 +15,15 @@ const fetchTokenBalance = async () => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            account: '0x8a45A9916C1bf2118E1047ad20D8c4Ba776D9722'
+            account: addr
         })
     });
     return await response.json();
 };
 
-export const getTokenBalance = () => {
+export const getTokenBalance = (addr) => {
     return (dispatch) => {
-        fetchTokenBalance().then(tokenBalance => {
+        fetchTokenBalance(addr).then(tokenBalance => {
             dispatch(returnTokenBalance(tokenBalance));
         });
     }
